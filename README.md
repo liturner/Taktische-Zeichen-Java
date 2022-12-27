@@ -2,7 +2,7 @@
 
 Taktische Zeichen für Hilfsorganisationen als 256 png in eine Java Bibliotech.
 
-![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/thw/Zugführer.png)
+![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/thw/Zugführer_TZ.png)
 ![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/feuerwehr/Löschzug.png)
 ![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einrichtungen/Leitstelle.png)
 ![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/Gerettete_Person.png)
