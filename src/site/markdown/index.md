@@ -19,6 +19,8 @@ Dieses Module ist sehr einfach. Es beinhaltet nur PNG Datein in den Package de.t
 
 [Maven Dependency](dependency-info.html)
 
+[Liste die Resourcen](https://github.com/liturner/Taktische-Zeichen-Java/blob/main/src/main/resources/de/turnertech/taktische_zeichen/index)
+
 ## Zuschreibung
 
 Vielen dank zu den Projekt [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) für die bereistellung die Bilder unter [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)

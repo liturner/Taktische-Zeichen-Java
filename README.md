@@ -33,7 +33,7 @@ Diese Projekt ist absichtlich ähnlich wie einige bereits existierende Projekte.
 Diese Projekt hat zwei Hauptfunktionalitäten:
 
 1. Eine Skript um die Dateien von [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) in eine Java freundlich Strukture umzuwandeln zu können.
-2. Eine Java 11 Maven Projekt, der eine Sammlung von 256px PNG Dateien in eine Java Module liefert durch Maven Central.
+2. Eine Java 11 Maven Projekt, der eine Sammlung von 256px PNG Dateien in eine Java Module liefert durch Maven Central. Maven Site [here](https://liturner.github.io/Taktische-Zeichen-Java/)
 
 ## Lizenzen
 
