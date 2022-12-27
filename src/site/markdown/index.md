@@ -2,9 +2,23 @@
 
 Eine einfache Java Module mit die Zeichen von den [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) Projekt.
 
-The package is very basic, and simply contains many png images. The key information you will need is:
+![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/thw/Zugführer_TZ.png)
+![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/feuerwehr/Löschzug.png)
+![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einrichtungen/Leitstelle.png)
+![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/Gerettete_Person.png)
+![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/gefahren/Gefahr_durch_Explosivstoffe.png)
+![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/thw/Zugtrupp.png)
+
+Dieses Module ist sehr einfach. Es beinhaltet nur PNG Datein in den Package de.turnertech.taktische_zeichen:
 
 - module: de.turnertech.taktische_zeichen
-- package: - module: de.turnertech.taktische_zeichen
+- package: de.turnertech.taktische_zeichen (Hat viele PNG Dateien)
+- klasse: de.turnertech.taktische_zeichen.Helper
 
-There is a single "Helper" class which may be of use. I highly recomend opening the jar with 7-zip or similar to browse the images if needed.
+[Javadoc](apidocs/de.turnertech.taktische_zeichen/module-summary.html)
+
+[Maven Dependency](dependency-info.html)
+
+## Zuschreibung
+
+Vielen dank zu den Projekt [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) für die bereistellung die Bilder unter [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)

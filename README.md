@@ -11,7 +11,7 @@ Taktische Zeichen für Hilfsorganisationen als 256 png in eine Java Bibliotech.
 
 ## Zuschreibung
 
-Vielen dank zu den Projekt [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) für die bereistellung die Bilder unter [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)!
+Vielen dank zu den Projekt [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) für die bereistellung die Bilder unter [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)!
 
 Diese Projekt ist absichtlich ähnlich wie einige bereits existierende Projekte. Bitte besuch die mal!:
 

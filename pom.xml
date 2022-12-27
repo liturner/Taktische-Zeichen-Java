@@ -127,6 +127,13 @@
           <version>1.5</version>
         </plugin>
 
+        <!-- Test Plugins -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M7</version>
+        </plugin>
+
         <!-- Reporting Plugins -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -238,5 +245,15 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <dependencies>
+    <!-- Test Dependencies -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.9.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
 </project>

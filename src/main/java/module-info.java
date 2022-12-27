@@ -6,5 +6,5 @@ module de.turnertech.taktische_zeichen {
     /**
      * Package containing all or the images on the class path.
      */
-    opens de.turnertech.taktische_zeichen;
+    exports de.turnertech.taktische_zeichen;
 }
