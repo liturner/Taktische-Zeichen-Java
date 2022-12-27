@@ -5,7 +5,7 @@
 
   <groupId>de.turnertech</groupId>
   <artifactId>taktische-zeichen</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
   <url>https://liturner.github.io/Taktische-Zeichen-Java/</url>
   <description>Resource package containing numerous Taktische Zeichen</description>
@@ -47,7 +47,7 @@
   <scm>
     <connection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</connection>
     <developerConnection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v1.0</tag>
     <url>https://github.com/liturner/Taktische-Zeichen-Java</url>
   </scm>
 
