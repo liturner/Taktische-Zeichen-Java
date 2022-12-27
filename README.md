@@ -1,13 +1,13 @@
 # Taktische-Zeichen-Java
 
 Taktische Zeichen für Hilfsorganisationen als 256 png in eine Java Bibliotech.
-
-![Zugführer - THW](https://rawgit.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/thw/Zugführer.png)
-![Löschzug](https://rawgit.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/feuerwehr/Löschzug.png)
-![Leitstelle](https://rawgit.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einrichtungen/Leitstelle.png)
-![Gerettete Person](https://rawgit.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/Gerettete_Person.png)
-![Gefahr durch Explosivstoffe](https://liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/gefahren/Gefahr_durch_Explosivstoffe.png)
-![Zugtrupp - THW](https://rawgit.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/thw/Zugtrupp.png)
+https://raw.githubusercontent.com/liturner/
+![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/thw/Zugführer.png)
+![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/feuerwehr/Löschzug.png)
+![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einrichtungen/Leitstelle.png)
+![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/personen/Gerettete_Person.png)
+![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/gefahren/Gefahr_durch_Explosivstoffe.png)
+![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/src/main/resources/de/turnertech/taktische_zeichen/einheiten/thw/Zugtrupp.png)
 
 ## Zuschreibung
 
