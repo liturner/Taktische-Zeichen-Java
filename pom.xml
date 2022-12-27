@@ -225,8 +225,15 @@
         <artifactId>maven-scm-publish-plugin</artifactId>
         <executions>
           <execution>
-            <id>scm-publish</id>
+            <id>manual-scm-publish</id>
             <phase>site-deploy</phase>
+            <goals>
+              <goal>publish-scm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>scm-publish</id>
+            <phase>release</phase>
             <goals>
               <goal>publish-scm</goal>
             </goals>
@@ -242,6 +249,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
     </plugins>
   </reporting>

@@ -1,3 +1,4 @@
+import io
 import os
 import shutil
 
@@ -53,7 +54,16 @@ for filename in os.listdir(resourceRoot):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 
-for key, value in packageMap.items():
-    print(rawRoot + key, '->', resourceRoot + value)
-    shutil.copytree(rawRoot + key, resourceRoot + value, dirs_exist_ok=True)
 
+for key, value in packageMap.items():
+    shutil.copytree(rawRoot + key, resourceRoot + value, dirs_exist_ok=True)
+        
+with io.open(resourceRoot + 'index', mode="w", encoding="utf-8") as indexFile:
+    for root, dirs, files in os.walk(resourceRoot):
+        for file in files:
+            path = root + '/' + file
+            path = path.replace('\\', '/')
+            path = path[len("src/main/resources"):]
+            indexFile.write(path + '\n')
+
+print("fin")

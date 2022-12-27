@@ -1,11 +1,13 @@
 package de.turnertech.taktische_zeichen;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A basic helper class containing some static helpers to list, locate and access the provided images.
@@ -14,51 +16,48 @@ import java.util.List;
  */
 public class Helper {
     
+    /**
+     * We use java.util logging. This is the name of the logger we are using.
+     * 
+     * @since 1.1
+     */
+    public static final String LOGGER_NAME = "de.turnertech.taktische_zeichen";
+
+    private static final Logger logger;
+
+    static {
+        logger = Logger.getLogger(LOGGER_NAME);
+    }
+
     private Helper() {
         // Private constructor as its a static helper class.
     }
 
     /**
-     * Temporary function to test Javadoc
+     * This function is slow! Do not use it in productive code!
      * 
-     * @return Hello
-     * @since 1.0
+     * Retrieves a {@link Collections#unmodifiableCollection(Collection)} containing the resource
+     * paths for all of the included assets.
+     * 
+     * This function will silently fail and return an empty or incomplete list if anything goes wrong.
+     * 
+     * @return Read Only Collection of resource names pointing to the supplied images.
+     * 
+     * @since 1.1
      */
-    public static String returnHello() {
-        return "Hello";
-    }
+    public static Collection<String> getResources() {
+        LinkedList<String> filenames = new LinkedList<>();
 
-    public static List<String> getResources() {
-        return getResourceFiles("");
-    }
-
-    private static List<String> getResourceFiles(String path) {
-        List<String> filenames = new ArrayList<>();
-    
-        try (
-                InputStream in = getResourceAsStream(path);
-                BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
-            String resource;
-    
-            while ((resource = br.readLine()) != null) {
-                filenames.add(resource);
+        try(InputStream indexStream = Helper.class.getResource("index").openStream()) {
+            Scanner scanner = new Scanner(indexStream);
+            while (scanner.hasNextLine()) {
+                filenames.add(scanner.nextLine());
             }
+            scanner.close();
         } catch (IOException e) {
-
+            logger.log(Level.SEVERE, "Could not retrive file names from Jar file.", e);
         }
-    
-        return filenames;
-    }
-    
-    private static InputStream getResourceAsStream(String resource) {
-        final InputStream in
-                = getContextClassLoader().getResourceAsStream(resource);
-    
-        return in == null ? Helper.class.getResourceAsStream(resource) : in;
-    }
-    
-    private static ClassLoader getContextClassLoader() {
-        return Thread.currentThread().getContextClassLoader();
-    }
 
+        return Collections.unmodifiableCollection(filenames);
+    }
 }
