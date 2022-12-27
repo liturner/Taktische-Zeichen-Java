@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"de.turnertech.taktische_zeichen","l":"de.turnertech.taktische_zeichen"}];updateSearchResults();

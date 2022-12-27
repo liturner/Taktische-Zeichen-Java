@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"de.turnertech.taktische_zeichen","c":"Helper","l":"returnHello()"}];updateSearchResults();
