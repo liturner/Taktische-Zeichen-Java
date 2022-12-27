@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd" name="Frederick">
+  <bannerLeft>
+    <name>TurnerTech</name>
+    <src>images/tt-banner.svg</src>
+    <title>TurnerTech</title>
+    <height>51px</height>
+  </bannerLeft>
+  <publishDate position="right" />
+  <version position="right" />
+  <body>
+    <links>
+      <item name="THW" href="https://www.thw.de/" img="https://www.thw.de/SiteGlobals/StyleBundles/Bilder/favicon.ico?__blob=normal&amp;v=2" height="14px"/>
+      <item name="BBK" href="https://www.bbk.bund.de/" img="https://www.bbk.bund.de/SiteGlobals/Frontend/Images/favicons/favicon.ico?__blob=normal&amp;v=1" height="14px"/>
+    </links>
+    <breadcrumbs>
+      <item name="Home" href="https://liturner.github.io/taktische-zeichen-java/"/>
+    </breadcrumbs>
+    <menu ref="reports"/>
+  </body>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.11.1</version>
+  </skin>
+</project>
