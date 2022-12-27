@@ -35,6 +35,11 @@ Diese Projekt hat zwei Hauptfunktionalitäten:
 1. Eine Skript um die Dateien von [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) in eine Java freundlich Strukture umzuwandeln zu können.
 2. Eine Java 11 Maven Projekt, der eine Sammlung von 256px PNG Dateien in eine Java Module liefert durch Maven Central.
 
+## Lizenzen
+
+- [![License: MIT](https://img.shields.io/badge/License-MIT%201.0-lightgrey.svg)](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/LICENSE) Diesem Repository und den kompilierten JAR Datei
+- [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/) Die PNG Dateien in diesem Repository und in den kompilierten JAR.
+
 Bemerkungen:
 
 - Ich bin unsicher ob die verwendung con UTF-8 Pfäde in Java stabil ist. Falls Problemen auftreten, einfach eine Issue erstellen!
