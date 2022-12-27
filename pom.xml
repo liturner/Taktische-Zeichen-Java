@@ -8,7 +8,7 @@
   <version>1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <url>https://liturner.github.io/Taktische-Zeichen-Java/</url>
-  <description>Resource package containing numerous Taktische Zeichen</description>
+  <description>Taktische Zeichen für Hilfsorganisationen als 256 png in eine Module</description>
 
   <name>Taktische-Zeichen</name>
   <licenses>
@@ -16,6 +16,13 @@
       <name>MIT</name>
       <url>https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/LICENSE</url>
       <distribution>repo</distribution>
+      <comments>Die Quellcode, Projekt und JAR Datei</comments>
+    </license>
+    <license>
+      <name>CC0-1.0</name>
+      <url>https://creativecommons.org/publicdomain/zero/1.0/legalcode</url>
+      <distribution>repo</distribution>
+      <comments>Die PNG Datein in den JAR Datei</comments>
     </license>
   </licenses>
 
@@ -59,12 +66,13 @@
   </properties>
 
   <distributionManagement>
+    <downloadUrl>https://central.sonatype.dev/artifact/de.turnertech/taktische-zeichen/1.0</downloadUrl>
     <repository>
-      <id>ossrh</id>
+      <id>sonatype</id>
       <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <snapshotRepository>
-      <id>ossrh</id>
+      <id>sonatype-snapshot</id>
       <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </snapshotRepository>
     <site>
@@ -152,6 +160,7 @@
 
     <plugins>
 
+      <!-- PGP Sign to satisfy Maven Central -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
@@ -194,13 +203,23 @@
         </executions>
       </plugin>
 
+      <!-- Generate Maven Site in German -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>de</locales>
+        </configuration>
+      </plugin>
+
+      <!-- Deploy Site to GitHub pages with -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-publish-plugin</artifactId>
         <executions>
           <execution>
             <id>scm-publish</id>
-            <phase>site-deploy</phase><!-- deploy site with maven-scm-publish-plugin -->
+            <phase>site-deploy</phase>
             <goals>
               <goal>publish-scm</goal>
             </goals>

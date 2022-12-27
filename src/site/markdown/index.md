@@ -1,6 +1,6 @@
 # Taktische-Zeichen-Java
 
-A basic resource pack containing the images produced by the GitHub project [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen)
+Eine einfache Java Module mit die Zeichen von den [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) Projekt.
 
 The package is very basic, and simply contains many png images. The key information you will need is:
 
