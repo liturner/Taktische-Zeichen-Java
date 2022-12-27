@@ -11,6 +11,16 @@ This project has been named in keeping with the other related projects. Please c
 - [Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen)
 - [Taktische-Zeichen-drawio](https://github.com/MartinBoehmer/Taktische-Zeichen-drawio)
 
+## Dependency Info
+
+```xml
+<dependency>
+  <groupId>de.turnertech</groupId>
+  <artifactId>taktische-zeichen</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
 ## Description
 
 This project has two primary parts:
