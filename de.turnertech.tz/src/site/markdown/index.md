@@ -19,7 +19,7 @@ Dieses Module ist sehr einfach. Es beinhaltet nur PNG Datein in den Package de.t
 
 [Maven Dependency](dependency-info.html)
 
-[Liste die Resourcen](https://github.com/liturner/Taktische-Zeichen-Java/blob/main/src/main/resources/de/turnertech/taktische_zeichen/index)
+[Liste die Resourcen](https://github.com/liturner/Taktische-Zeichen-Java/blob/main/src/main/resources/de/turnertech/taktische_zeichen/index.properties)
 
 ## Zuschreibung
 
