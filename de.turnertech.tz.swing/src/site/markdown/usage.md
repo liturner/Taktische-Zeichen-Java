@@ -33,6 +33,8 @@ public class Application {
 
         Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
         for(TacticalSymbol symbol : symbols) {
+            // Here we are also resizing the image to suite us. The smaller copy is cached
+            // in the background.
             listModel.addElement(symbol.getImageIcon(48, 48));
         }
         
