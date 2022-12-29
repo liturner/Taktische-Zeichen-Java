@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.turnertech</groupId>
-  <artifactId>taktische-zeichen-java</artifactId>
+  <artifactId>taktische-zeichen-parent</artifactId>
   <name>Taktische-Zeichen-Java</name>
   <inceptionYear>2022</inceptionYear>
   <version>1.2-SNAPSHOT</version>
