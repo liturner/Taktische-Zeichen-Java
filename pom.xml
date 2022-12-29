@@ -9,6 +9,8 @@
   <packaging>pom</packaging>
   <url>https://liturner.github.io/Taktische-Zeichen-Java/</url>
 
+  <description>Parent and Aggregator POM for the Taktische-Zeichen-Java project</description>
+
   <organization>
     <name>TurnerTech</name>
     <url>https://github.com/liturner</url>
