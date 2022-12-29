@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"de.turnertech.taktische_zeichen"}];updateSearchResults();
+moduleSearchIndex = [{"l":"de.turnertech.tz"}];updateSearchResults();
