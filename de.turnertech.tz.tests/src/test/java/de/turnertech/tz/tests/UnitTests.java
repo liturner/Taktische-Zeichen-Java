@@ -11,8 +11,8 @@ import java.util.Collection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import de.turnertech.tz.TacticalSymbol;
-import de.turnertech.tz.TacticalSymbolFactory;
+import de.turnertech.tz.symbol.TacticalSymbol;
+import de.turnertech.tz.symbol.TacticalSymbolFactory;
 
 public class UnitTests {
 

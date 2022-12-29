@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.turnertech</groupId>
-  <artifactId>taktische-zeichen-agregator</artifactId>
+  <artifactId>taktische-zeichen-java</artifactId>
   <name>Taktische-Zeichen-Java</name>
   <inceptionYear>2022</inceptionYear>
   <version>1.2-SNAPSHOT</version>
@@ -57,6 +57,7 @@
 
   <modules>
     <module>de.turnertech.tz</module>
+    <module>de.turnertech.tz.swing</module>
     <module>de.turnertech.tz.tests</module>
   </modules>
 
@@ -244,6 +245,7 @@
             <!-- https://maven.apache.org/plugins/maven-project-info-reports-plugin/ -->
             <reports>
               <report>dependencies</report>
+              <report>dependency-info</report>
               <report>ci-management</report>
               <report>issue-management</report>
               <report>licenses</report>

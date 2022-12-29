@@ -9,24 +9,17 @@
     <version>1.2-SNAPSHOT</version>
   </parent>
 
-  <artifactId>taktische-zeichen</artifactId>
+  <artifactId>taktische-zeichen-swing</artifactId>
   
-  <name>Taktische-Zeichen</name>
+  <name>Taktische-Zeichen-Swing</name>
   <packaging>jar</packaging>
-  <description>Taktische Zeichen für Hilfsorganisationen als 256px PNG in eine Module</description>
+  <description>Taktische Zeichen für Hilfsorganisationen als 256px PNG mit Swing Helper Classes</description>
 
   <licenses>
     <license>
       <name>MIT</name>
       <url>https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/LICENSE</url>
       <distribution>repo</distribution>
-      <comments>Die Quellcode, Projekt und JAR Datei</comments>
-    </license>
-    <license>
-      <name>CC0-1.0</name>
-      <url>https://creativecommons.org/publicdomain/zero/1.0/legalcode</url>
-      <distribution>repo</distribution>
-      <comments>Die PNG Datein in den JAR Datei</comments>
     </license>
   </licenses>
 
@@ -46,4 +39,12 @@
     </plugins>
   </reporting>
 
+  <dependencies>
+    <dependency>
+      <groupId>de.turnertech</groupId>
+      <artifactId>taktische-zeichen</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+  
 </project>

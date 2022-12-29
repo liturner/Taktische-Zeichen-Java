@@ -3,7 +3,7 @@ import os
 import shutil
 
 rawRoot = "de.turnertech.tz/src/raw/"
-resourceRoot = "de.turnertech.tz/src/main/resources/de/turnertech/tz/"
+resourceRoot = "de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/"
 
 packageMap = {
     "Bundeswehr_Einheiten" : ["einheiten/bundeswehr/", "bw,einheiten"],

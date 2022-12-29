@@ -1,4 +1,4 @@
-package de.turnertech.tz;
+package de.turnertech.tz.symbol;
 
 import java.net.URL;
 import java.util.Collection;

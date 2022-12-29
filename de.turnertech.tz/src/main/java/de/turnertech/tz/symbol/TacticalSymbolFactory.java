@@ -1,4 +1,4 @@
-package de.turnertech.tz;
+package de.turnertech.tz.symbol;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import de.turnertech.tz.TacticalSymbol.Tag;
+import de.turnertech.tz.symbol.TacticalSymbol.Tag;
 
 /**
  * <p>A static factory class for creating and accessing the tactical symbols
