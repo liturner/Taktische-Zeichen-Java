@@ -2,12 +2,12 @@
 
 Collection of Tactical Symbols as used by the German Aid Organisations, provided as 256px PNG images through a set of Java 11+ Modules.
 
-![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/personen/thw/Zugführer_TZ.png)
-![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einheiten/feuerwehr/Löschzug.png)
-![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einrichtungen/Leitstelle.png)
-![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/personen/Gerettete_Person.png)
-![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/gefahren/Gefahr_durch_Explosivstoffe.png)
-![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einheiten/thw/Zugtrupp.png)
+![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/personen/thw/Zugführer_TZ.png)
+![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/feuerwehr/Löschzug.png)
+![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einrichtungen/Leitstelle.png)
+![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/personen/Gerettete_Person.png)
+![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/gefahren/Gefahr_durch_Explosivstoffe.png)
+![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/thw/Zugtrupp.png)
 
 ## Description
 
