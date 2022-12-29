@@ -42,3 +42,6 @@ The Maven Site is a fully fledged multi-module site, deployed to GitHub Pages. T
 4. mvn site:stage
 5. mvn site-deploy
 
+### The Package
+
+At current you may need to run mvn release:prepare twice. The tests fail the first time, but not the second?
