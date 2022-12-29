@@ -6,7 +6,7 @@
   <parent>
     <groupId>de.turnertech</groupId>
     <artifactId>taktische-zeichen-java</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
   </parent>
 
   <artifactId>taktische-zeichen-tests</artifactId>
@@ -27,7 +27,7 @@
         <executions>
           <execution>
             <id>default-jar</id>
-            <phase/>
+            <phase />
           </execution>
           <execution>
             <goals>
