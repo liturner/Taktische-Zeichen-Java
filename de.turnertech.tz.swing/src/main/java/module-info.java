@@ -6,6 +6,8 @@
 module de.turnertech.tz.swing {
     exports de.turnertech.tz.swing;
 
-    requires de.turnertech.tz.symbol;
+    requires transitive de.turnertech.tz.symbol;
+
     requires java.logging;
+    requires transitive java.desktop;
 }

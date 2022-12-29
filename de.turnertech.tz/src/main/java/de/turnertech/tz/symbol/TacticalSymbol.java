@@ -1,10 +1,14 @@
 package de.turnertech.tz.symbol;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
-import java.util.Optional;
+
+import de.turnertech.tz.api.TacticalSymbolTag;
 
 /**
  * A representation of the Tactical Symbol. It is intended to be a lightweight
@@ -15,65 +19,12 @@ import java.util.Optional;
  */
 public class TacticalSymbol {
     
-    /**
-     * A tag which may be related to a tactical symbol. These are usefull for 
-     * searching, grouping and sorting.
-     */
-    public enum Tag {
-
-        /** Federal Agency for Technical Relief, or Technisches Hilfswerk. */
-        THW("thw"),
-
-        /** Feuerwehr, Fire Brigade */
-        FW("fw"),
-
-        /** Bundeswehr, Military */
-        BW("bw"),
-
-        /** Zoll, Customs */
-        CUSTOMS("zoll"),
-
-        /** Einheit, Unit */
-        UNIT("einheiten"),
-
-        /** Gebäude, Building */
-        BUILDING("gebäude"),
-
-        /** Person */
-        PERSON("personen");
-
-        private final String label;
-
-        private Tag(final String label) {
-            Objects.requireNonNull(label);
-            this.label = label;
-        }
-
-        /**
-         * Gets the tag instance related to a string. This is used to instantiate
-         * the tags from the text index stored in the classpath. It is also the method
-         * used to convert the german tags, into english code.
-         * 
-         * @param label The label assigned in the text index.
-         * @return The tag, or empty if not found.
-         * @since 1.2
-         */
-        public static Optional<Tag> from(final String label) {
-            for(Tag tag : Tag.values()) {
-                if(tag.label.equals(label)) {
-                    return Optional.of(tag);
-                }
-            }
-            return Optional.empty();
-        }
-    };
-
     private final URL resource;
 
-    private final Collection<Tag> tags;
+    private final Collection<TacticalSymbolTag> tags;
 
-    TacticalSymbol(final URL resource, final Collection<Tag> tags) {
-        Objects.requireNonNull(resource);
+    TacticalSymbol(final URL resource, final Collection<TacticalSymbolTag> tags) {
+        Objects.requireNonNull(resource, "TacticalSymbol cannot be created with a null resource!");
         this.tags = tags == null ? Collections.emptyList() : Collections.unmodifiableCollection(tags);
         this.resource = resource;                
     }
@@ -97,7 +48,7 @@ public class TacticalSymbol {
      * @return an unmodifiable collection.
      * @since 1.2
      */
-    public Collection<Tag> getTags() {
+    public Collection<TacticalSymbolTag> getTags() {
         return tags;
     }
 
@@ -108,8 +59,19 @@ public class TacticalSymbol {
      * @return If the tag was present.
      * @since 1.2
      */
-    public boolean hasTag(final Tag tag) {
+    public boolean hasTag(final TacticalSymbolTag tag) {
         return tags.contains(tag);
+    }
+
+    @Override
+    public String toString() {
+        String filename = resource.toString();
+        try {
+            filename = URLDecoder.decode(filename, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException e) {
+            TacticalSymbolFactory.logger.severe("Could not decode the filepath to a UTF-8 String! Tell this to a Dev");
+        }
+        return filename.substring(filename.lastIndexOf('/') + 1 , filename.length() - 4);
     }
 
 }

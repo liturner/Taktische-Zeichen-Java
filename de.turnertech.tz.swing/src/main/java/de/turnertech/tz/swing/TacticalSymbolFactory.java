@@ -1,14 +1,10 @@
-package de.turnertech.tz.symbol;
+package de.turnertech.tz.swing;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import de.turnertech.tz.api.TacticalSymbolTag;
@@ -36,7 +32,7 @@ public class TacticalSymbolFactory {
     /**
      * We use java.util logging. This is the name of the logger we are using.
      * 
-     * @since 1.1
+     * @since 1.2
      */
     public static final String LOGGER_NAME = "de.turnertech.tz";
 
@@ -47,10 +43,9 @@ public class TacticalSymbolFactory {
     }
 
     /**
-     * <p>Reads the index file and populates an internal storage of 
-     * {@link TacticalSymbol} instances. Note, that thes instances do not have
-     * the images in memory, only URLs to the assets so that you can easily
-     * load them using your system of choice.</p>
+     * <p>Uses {@link de.turnertech.tz.symbol.TacticalSymbolFactory} to initialise an internal
+     * list aof all available tactical symbols wrapped and prepared in {@link TacticalSymbol}
+     * instances</p>
      * 
      * @return if the initialisation was successfull or not.
      * @since 1.2
@@ -62,26 +57,15 @@ public class TacticalSymbolFactory {
             return true;
         }
 
-        try (InputStream input = TacticalSymbolFactory.class.getResourceAsStream("index")) {
-            tacticalSymbols = new ArrayList<>(1000);
-            Scanner scanner = new Scanner(input, "UTF-8");
-            while (scanner.hasNextLine()) {
-                String[] line = scanner.nextLine().split(",");
-                URL resource = TacticalSymbolFactory.class.getResource(line[0]);
-                ArrayList<TacticalSymbolTag> tagList = new ArrayList<>();
-                for(int i = 1; i < line.length; ++i) {
-                    tagList.add(TacticalSymbolTag.from(line[i]).orElseThrow());
-                }
-                tagList.trimToSize();
-                tacticalSymbols.add(new TacticalSymbol(resource, tagList));
-            }
-            scanner.close();
-            tacticalSymbols.trimToSize();
-        } catch(Exception exception) {
-            logger.log(Level.SEVERE, "Could not read the index file! This is an internal failure, please report it to the project");
-            logger.log(Level.SEVERE, exception.toString());
-            tacticalSymbols = null;
+        if(!de.turnertech.tz.symbol.TacticalSymbolFactory.initialise()) {
+            logger.severe("Could not initialised the symbol.TacticalSymbolFactory!");
             return false;
+        }
+
+        Collection<de.turnertech.tz.symbol.TacticalSymbol> symbols = de.turnertech.tz.symbol.TacticalSymbolFactory.getTacticalSymbols();
+        tacticalSymbols = new ArrayList<>(symbols.size());
+        for(de.turnertech.tz.symbol.TacticalSymbol symbol : symbols) {
+            tacticalSymbols.add(new TacticalSymbol(symbol));
         }
 
         return true;
@@ -95,6 +79,7 @@ public class TacticalSymbolFactory {
      */
     public static void reset() {
         tacticalSymbols = null;
+        de.turnertech.tz.symbol.TacticalSymbolFactory.reset();
     }
 
     /**

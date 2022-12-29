@@ -4,7 +4,8 @@
  * manner.
  */
 module de.turnertech.tz.symbol {
-    exports de.turnertech.tz.symbol;
+    exports de.turnertech.tz.symbol to de.turnertech.tz.swing;
+    exports de.turnertech.tz.api;
 
     requires java.logging;
 }

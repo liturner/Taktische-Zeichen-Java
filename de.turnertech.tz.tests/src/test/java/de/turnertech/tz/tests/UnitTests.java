@@ -2,6 +2,7 @@ package de.turnertech.tz.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,6 +12,7 @@ import java.util.Collection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import de.turnertech.tz.api.TacticalSymbolTag;
 import de.turnertech.tz.symbol.TacticalSymbol;
 import de.turnertech.tz.symbol.TacticalSymbolFactory;
 
@@ -54,8 +56,17 @@ public class UnitTests {
     public void immutableTest() {
         Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
         for(TacticalSymbol symbol : symbols) {
-            Collection<TacticalSymbol.Tag> tags = symbol.getTags();
-            assertThrows(UnsupportedOperationException.class,() -> tags.add(TacticalSymbol.Tag.CUSTOMS));
+            Collection<TacticalSymbolTag> tags = symbol.getTags();
+            assertThrows(UnsupportedOperationException.class,() -> tags.add(TacticalSymbolTag.CUSTOMS));
+        }
+    }
+
+    @Test
+    public void tacticalSymbolString() {
+        Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
+        for(TacticalSymbol symbol : symbols) {
+            assertNotNull(symbol.toString());
+            assertNotEquals("", symbol.toString());
         }
     }
 
