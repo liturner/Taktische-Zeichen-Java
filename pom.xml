@@ -5,7 +5,7 @@
   <artifactId>taktische-zeichen-java</artifactId>
   <name>Taktische-Zeichen-Java</name>
   <inceptionYear>2022</inceptionYear>
-  <version>1.3-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <url>https://liturner.github.io/Taktische-Zeichen-Java/</url>
 
@@ -17,7 +17,7 @@
   <scm>
     <connection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</connection>
     <developerConnection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</developerConnection>
-    <tag>taktische-zeichen-java-1.2</tag>
+    <tag>taktische-zeichen-1.1</tag>
     <url>https://github.com/liturner/Taktische-Zeichen-Java</url>
   </scm>
 
