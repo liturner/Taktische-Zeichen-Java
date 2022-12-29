@@ -1,8 +1,8 @@
 # Taktische-Zeichen-Java
 
-![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/personen/thw/Zugführer_TZ.png)
-![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einheiten/feuerwehr/Löschzug.png)
-![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einrichtungen/Leitstelle.png)
+![Zugführer - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/personen/thw/Zugführer_TZ.png)
+![Löschzug](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/feuerwehr/Löschzug.png)
+![Leitstelle](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einrichtungen/Leitstelle.png)
 
 Taktische-Zeichen-Java is a Java project containing a set of tactical symbols from the project [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen), packaged and distributed in a Java 11 friendly manner, using the Java Module System.
 

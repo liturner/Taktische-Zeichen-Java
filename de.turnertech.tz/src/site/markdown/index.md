@@ -1,8 +1,8 @@
 # Taktische-Zeichen (Tactical Symbols)
 
-![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/personen/Gerettete_Person.png)
-![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/gefahren/Gefahr_durch_Explosivstoffe.png)
-![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/einheiten/thw/Zugtrupp.png)
+![Gerettete Person](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/personen/Gerettete_Person.png)
+![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/gefahren/Gefahr_durch_Explosivstoffe.png)
+![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/thw/Zugtrupp.png)
 
 This is a maven artefact (jar) containing the actual images, and a few very basic "pure java" set of classes for accessing the images. For more information on the modules and classes, check out the [Javadoc](apidocs/de.turnertech.tz.symbol/module-summary.html) under Project Reports on the left.
 
