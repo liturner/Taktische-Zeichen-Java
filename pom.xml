@@ -14,6 +14,34 @@
     <url>https://github.com/liturner</url>
   </organization>
 
+  <scm>
+    <connection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</connection>
+    <developerConnection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</developerConnection>
+    <tag>taktische-zeichen-1.1</tag>
+    <url>https://github.com/liturner/Taktische-Zeichen-Java</url>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/liturner/Taktische-Zeichen-Java/issues</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <downloadUrl>https://central.sonatype.dev/artifact/de.turnertech/taktische-zeichen/1.0</downloadUrl>
+    <repository>
+      <id>sonatype</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>sonatype-snapshot</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <site>
+      <id>github</id>
+      <url>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</url>
+    </site>
+  </distributionManagement>
+
   <developers>
     <developer>
       <id>liturner</id>
@@ -106,6 +134,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.12.1</version>
+          <configuration>
+            <skipDeploy>true</skipDeploy><!-- don't deploy site with maven-site-plugin -->
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -116,12 +147,24 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-publish-plugin</artifactId>
           <version>3.1.0</version>
+          <configuration>
+            <scmBranch>site</scmBranch>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
 
     <plugins>
-    
+
+      <!-- Generate Maven Site in German -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>en</locales>
+        </configuration>
+      </plugin>
+
       <!-- PGP Sign to satisfy Maven Central -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -165,14 +208,28 @@
         </executions>
       </plugin>
 
-      <!-- Skip Site by default. We only care about the site from the actuall jar -->
+      <!-- Deploy Site to GitHub pages with -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin> 
+        <artifactId>maven-scm-publish-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>manual-scm-publish</id>
+            <phase>site-deploy</phase>
+            <goals>
+              <goal>publish-scm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>scm-publish</id>
+            <phase>release</phase>
+            <goals>
+              <goal>publish-scm</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 

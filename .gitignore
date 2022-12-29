@@ -1,6 +1,7 @@
 de.turnertech.tz/src/raw/
 de.turnertech.tz/target/
 de.turnertech.tz.tests/target/
+target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
