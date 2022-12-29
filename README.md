@@ -30,10 +30,10 @@ Diese Projekt ist absichtlich ähnlich wie einige bereits existierende Projekte.
 
 ## Beschreibung
 
-Diese Projekt hat zwei Hauptfunktionalitäten:
+Diese Projekt hat:
 
 1. Eine Skript um die Dateien von [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen) in eine Java freundlich Strukture umzuwandeln zu können.
-2. Eine Java 11 Maven Projekt, der eine Sammlung von 256px PNG Dateien in eine Java Module liefert durch Maven Central. Maven Site [here](https://liturner.github.io/Taktische-Zeichen-Java/)
+2. Eine Java 11 Maven Projekt, mit ein paar Maven / Java modulen [here](https://liturner.github.io/Taktische-Zeichen-Java/)
 
 ## Lizenzen
 
@@ -43,3 +43,16 @@ Diese Projekt hat zwei Hauptfunktionalitäten:
 ## Bemerkungen:
 
 - Ich bin unsicher ob die verwendung con UTF-8 Pfäde in Java stabil ist. Falls Problemen auftreten, einfach eine Issue erstellen!
+
+## Building & Deploying
+
+### The Website
+
+The Maven Site is a fully fledged multi-module site, deployed to GitHub Pages. To be certain that the build fully works run the following commands in order (there are some nuances due to the tests module).
+
+1. mvn clean
+2. mvn verify
+3. mvn site
+4. mvn site:stage
+5. mvn site-deploy
+

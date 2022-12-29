@@ -3,7 +3,7 @@
 
   <groupId>de.turnertech</groupId>
   <artifactId>taktische-zeichen-agregator</artifactId>
-  <name>Taktische-Zeichen-Agregator</name>
+  <name>Taktische-Zeichen-Java</name>
   <inceptionYear>2022</inceptionYear>
   <version>1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -232,5 +232,28 @@
 
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <!-- https://maven.apache.org/plugins/maven-project-info-reports-plugin/ -->
+            <reports>
+              <report>dependencies</report>
+              <report>ci-management</report>
+              <report>issue-management</report>
+              <report>licenses</report>
+              <report>scm</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+    </plugins>
+  </reporting>
 
 </project>

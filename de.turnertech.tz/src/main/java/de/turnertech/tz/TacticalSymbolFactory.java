@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import de.turnertech.tz.TacticalSymbol.Tag;
 
@@ -33,6 +34,19 @@ public class TacticalSymbolFactory {
     private static ArrayList<TacticalSymbol> tacticalSymbols;
 
     /**
+     * We use java.util logging. This is the name of the logger we are using.
+     * 
+     * @since 1.1
+     */
+    public static final String LOGGER_NAME = "de.turnertech.tz";
+
+    static final Logger logger;
+
+    static {
+        logger = Logger.getLogger(LOGGER_NAME);
+    }
+
+    /**
      * <p>Reads the index file and populates an internal storage of 
      * {@link TacticalSymbol} instances. Note, that thes instances do not have
      * the images in memory, only URLs to the assets so that you can easily
@@ -44,7 +58,7 @@ public class TacticalSymbolFactory {
     public static boolean initialise() {
 
         if(tacticalSymbols != null) {
-            Helper.logger.warning("Detected repeated calls to initialise. This should not happen, the factory cannot be initialised twice.");
+            logger.warning("Detected repeated calls to initialise. This should not happen, the factory cannot be initialised twice.");
             return true;
         }
 
@@ -64,13 +78,22 @@ public class TacticalSymbolFactory {
             scanner.close();
             tacticalSymbols.trimToSize();
         } catch(Exception exception) {
-            Helper.logger.log(Level.SEVERE, "Could not read the index file! This is an internal failure, please report it to the project");
-            Helper.logger.log(Level.SEVERE, exception.toString());
+            logger.log(Level.SEVERE, "Could not read the index file! This is an internal failure, please report it to the project");
+            logger.log(Level.SEVERE, exception.toString());
             tacticalSymbols = null;
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * <p>Resets the cache back to a default state. After calling clear, a subsequent call to 
+     * {@link #isInitialised()} will return false.</p>
+     * 
+     */
+    public static void reset() {
+        tacticalSymbols = null;
     }
 
     /**
