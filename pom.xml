@@ -9,6 +9,8 @@
   <packaging>pom</packaging>
   <url>https://liturner.github.io/Taktische-Zeichen-Java/</url>
 
+  <description>Parent and Aggregator POM for the Taktische-Zeichen-Java project</description>
+
   <organization>
     <name>TurnerTech</name>
     <url>https://github.com/liturner</url>
@@ -17,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</connection>
     <developerConnection>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</developerConnection>
-    <tag>taktische-zeichen-1.1</tag>
+    <tag>taktische-zeichen-1.2</tag>
     <url>https://github.com/liturner/Taktische-Zeichen-Java</url>
   </scm>
 
@@ -41,6 +43,14 @@
       <url>scm:git:https://github.com/liturner/Taktische-Zeichen-Java.git</url>
     </site>
   </distributionManagement>
+
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <developers>
     <developer>
