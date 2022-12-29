@@ -42,6 +42,14 @@
     </site>
   </distributionManagement>
 
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <developers>
     <developer>
       <id>liturner</id>
