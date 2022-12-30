@@ -12,41 +12,41 @@ import java.util.Collection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import de.turnertech.tz.api.TacticalSymbolTag;
-import de.turnertech.tz.symbol.TacticalSymbol;
-import de.turnertech.tz.symbol.TacticalSymbolFactory;
+import de.turnertech.tz.symbol.TacticalSymbolResource;
+import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
+import de.turnertech.tz.symbol.TacticalSymbolTag;
 
 public class UnitTests {
 
     @AfterEach
     public void cleanup() {
-        TacticalSymbolFactory.reset();
+        TacticalSymbolResourceFactory.reset();
     }
 
     @Test
     public void tacticalSymbolFactoryInitialise() {
-        assertFalse(TacticalSymbolFactory.isInitialised());
-        assertTrue(TacticalSymbolFactory.initialise());
-        assertTrue(TacticalSymbolFactory.isInitialised());
+        assertFalse(TacticalSymbolResourceFactory.isInitialised());
+        assertTrue(TacticalSymbolResourceFactory.initialise());
+        assertTrue(TacticalSymbolResourceFactory.isInitialised());
     }
 
     @Test
     public void tacticalSymbolFactoryDefaultInitialise() {
-        assertFalse(TacticalSymbolFactory.isInitialised());
-        assertNotNull(TacticalSymbolFactory.getTacticalSymbols());
-        assertTrue(TacticalSymbolFactory.getTacticalSymbols().size() > 100);
-        assertTrue(TacticalSymbolFactory.isInitialised());
+        assertFalse(TacticalSymbolResourceFactory.isInitialised());
+        assertNotNull(TacticalSymbolResourceFactory.getTacticalSymbols());
+        assertTrue(TacticalSymbolResourceFactory.getTacticalSymbols().size() > 100);
+        assertTrue(TacticalSymbolResourceFactory.isInitialised());
     }
 
     @Test
     public void loggerNameUnchanged() {
-        assertEquals("de.turnertech.tz", TacticalSymbolFactory.LOGGER_NAME, "Do not change the logger name! Other people depend on it and it will fail annoyingly and silently in other peoples apps");
+        assertEquals("de.turnertech.tz", TacticalSymbolResourceFactory.LOGGER_NAME, "Do not change the logger name! Other people depend on it and it will fail annoyingly and silently in other peoples apps");
     }
 
     @Test
     public void noNullResources() {
-        Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
-        for(TacticalSymbol symbol : symbols) {
+        Collection<TacticalSymbolResource> symbols = TacticalSymbolResourceFactory.getTacticalSymbols();
+        for(TacticalSymbolResource symbol : symbols) {
             assertNotNull(symbol.getResourceURL());
             assertNotNull(symbol.getTags());
         }
@@ -54,8 +54,8 @@ public class UnitTests {
 
     @Test
     public void immutableTest() {
-        Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
-        for(TacticalSymbol symbol : symbols) {
+        Collection<TacticalSymbolResource> symbols = TacticalSymbolResourceFactory.getTacticalSymbols();
+        for(TacticalSymbolResource symbol : symbols) {
             Collection<TacticalSymbolTag> tags = symbol.getTags();
             assertThrows(UnsupportedOperationException.class,() -> tags.add(TacticalSymbolTag.CUSTOMS));
         }
@@ -63,8 +63,8 @@ public class UnitTests {
 
     @Test
     public void tacticalSymbolString() {
-        Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
-        for(TacticalSymbol symbol : symbols) {
+        Collection<TacticalSymbolResource> symbols = TacticalSymbolResourceFactory.getTacticalSymbols();
+        for(TacticalSymbolResource symbol : symbols) {
             assertNotNull(symbol.toString());
             assertNotEquals("", symbol.toString());
         }

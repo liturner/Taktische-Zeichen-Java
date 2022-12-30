@@ -8,22 +8,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
-import de.turnertech.tz.api.TacticalSymbolTag;
-
 /**
- * A representation of the Tactical Symbol. It is intended to be a lightweight
+ * <p>A representation of the Tactical Symbol. It is intended to be a lightweight
  * class which can be cheaply, and diversly used to programatically access the
- * image library.
+ * image library.</p>
  * 
- * @since 1.2
+ * <p>It is recomended to grab one of the other modules (like taktische-zeichen-swing)
+ * instead. This class is inteded as a basic backbone for the raw ersource</p>
  */
-public class TacticalSymbol {
+public class TacticalSymbolResource {
     
     private final URL resource;
 
     private final Collection<TacticalSymbolTag> tags;
 
-    TacticalSymbol(final URL resource, final Collection<TacticalSymbolTag> tags) {
+    TacticalSymbolResource(final URL resource, final Collection<TacticalSymbolTag> tags) {
         Objects.requireNonNull(resource, "TacticalSymbol cannot be created with a null resource!");
         this.tags = tags == null ? Collections.emptyList() : Collections.unmodifiableCollection(tags);
         this.resource = resource;                
@@ -36,7 +35,6 @@ public class TacticalSymbol {
      * <p>This can be used (for example) directly in swing ImageIcon</p>
      *
      * @return The URL pointing to the resource.
-     * @since 1.2
      */
     public URL getResourceURL() {
         return resource;
@@ -46,7 +44,6 @@ public class TacticalSymbol {
      * Returns the collection of tags associated with this symbol
      * 
      * @return an unmodifiable collection.
-     * @since 1.2
      */
     public Collection<TacticalSymbolTag> getTags() {
         return tags;
@@ -57,7 +54,6 @@ public class TacticalSymbol {
      * 
      * @param tag Tag to check is present.
      * @return If the tag was present.
-     * @since 1.2
      */
     public boolean hasTag(final TacticalSymbolTag tag) {
         return tags.contains(tag);
@@ -69,7 +65,7 @@ public class TacticalSymbol {
         try {
             filename = URLDecoder.decode(filename, StandardCharsets.UTF_8.toString());
         } catch (UnsupportedEncodingException e) {
-            TacticalSymbolFactory.logger.severe("Could not decode the filepath to a UTF-8 String! Tell this to a Dev");
+            TacticalSymbolResourceFactory.logger.severe("Could not decode the filepath to a UTF-8 String! Tell this to a Dev");
         }
         return filename.substring(filename.lastIndexOf('/') + 1 , filename.length() - 4);
     }

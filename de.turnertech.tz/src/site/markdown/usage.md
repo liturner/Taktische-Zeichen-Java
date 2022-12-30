@@ -12,20 +12,20 @@ Below a basic usage example to loop and print through all of the symbols provide
 
 ```java
 import java.util.Collection;
-import de.turnertech.tz.symbol.TacticalSymbol;
-import de.turnertech.tz.symbol.TacticalSymbolFactory;
+import de.turnertech.tz.symbol.TacticalSymbolResource;
+import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
 
 public class Application {
     public static void main(String[] args) {
 
         // Technically optional, but recomended in production as it is 
         // a fairly expensive one off function.
-        TacticalSymbolFactory.initialise();
+        TacticalSymbolResourceFactory.initialise();
         
         // Loop and print out all of the symbol paths on the class path. You could
         // use thes URLs in e.g. a Swing Image.
-        Collection<TacticalSymbol> symbols = TacticalSymbolFactory.getTacticalSymbols();
-        for(TacticalSymbol symbol : symbols) {
+        Collection<TacticalSymbolResource> symbols = TacticalSymbolResourceFactory.getTacticalSymbols();
+        for(TacticalSymbolResource symbol : symbols) {
             System.out.println(symbol.getResourceURL());
         }
     }
@@ -35,11 +35,11 @@ public class Application {
 How to get the name of the JUL logger we are using.
 
 ```java
-import de.turnertech.tz.symbol.TacticalSymbolFactory;
+import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println(TacticalSymbolFactory.LOGGER_NAME);
+        System.out.println(TacticalSymbolResourceFactory.LOGGER_NAME);
     }
 }
 ```

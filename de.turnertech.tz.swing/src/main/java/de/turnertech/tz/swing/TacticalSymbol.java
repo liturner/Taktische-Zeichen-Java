@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import javax.swing.ImageIcon;
 
-import de.turnertech.tz.api.TacticalSymbolTag;
+import de.turnertech.tz.symbol.TacticalSymbolTag;
 
 /**
  * A Swing version of the Tactical Symbol class. This class uses lazy
@@ -20,7 +20,7 @@ import de.turnertech.tz.api.TacticalSymbolTag;
  */
 public class TacticalSymbol {
     
-    private final de.turnertech.tz.symbol.TacticalSymbol symbol;
+    private final de.turnertech.tz.symbol.TacticalSymbolResource symbol;
 
     private ImageIcon imageIcon;
 
@@ -29,7 +29,7 @@ public class TacticalSymbol {
     
     private ArrayList<AbstractMap.SimpleEntry<Integer, ImageIcon>> cache = new ArrayList<>(2);
 
-    TacticalSymbol(final de.turnertech.tz.symbol.TacticalSymbol symbol) {
+    TacticalSymbol(final de.turnertech.tz.symbol.TacticalSymbolResource symbol) {
         Objects.requireNonNull(symbol, "Cannot create a swing.TacticalSymbol without a symbol.TacticalSymbol");
         this.symbol = symbol;
     }
@@ -53,6 +53,7 @@ public class TacticalSymbol {
     public ImageIcon getImageIcon() {
         if(imageIcon == null) {
             imageIcon = new ImageIcon(symbol.getResourceURL());
+            imageIcon.setDescription(symbol.toString());
             int cacheKey = getCacheKey(imageIcon.getIconWidth(), imageIcon.getIconHeight(), DEFAULT_SCALING_METHOD);
             this.cache.add(new SimpleEntry<>(cacheKey, imageIcon));
         }
@@ -67,7 +68,6 @@ public class TacticalSymbol {
      * @param width The desired width of the returned image.
      * @param height The desired height of the returned image.
      * @return A scaled instance. This instance will also hold a copy of the reference.
-     * @since 1.2
      * @see #getImageIcon(int, int, int)
      */
     public ImageIcon getImageIcon(final int width, final int height) {
@@ -83,7 +83,6 @@ public class TacticalSymbol {
      * @param height The desired height of the returned image.
      * @param method The scaling method as per java.awt.Image constants.
      * @return A scaled instance. This instance will also hold a copy of the reference.
-     * @since 1.2
      * @see #getImageIcon(int, int)
      */
     public ImageIcon getImageIcon(final int width, final int height, final int method) {
@@ -96,6 +95,7 @@ public class TacticalSymbol {
 
         ImageIcon origional = getImageIcon();
         ImageIcon scaled = new ImageIcon(origional.getImage().getScaledInstance(height, width, method));
+        scaled.setDescription(symbol.toString());
         this.cache.add(new SimpleEntry<>(cacheKey, scaled));
         return scaled;
     }

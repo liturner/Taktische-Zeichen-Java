@@ -36,11 +36,14 @@ This project has followed the same naming convention as a few other existing pro
 
 The Maven Site is a fully fledged multi-module site, deployed to GitHub Pages. To be certain that the build fully works run the following commands in order (there are some nuances due to the tests module).
 
-1. mvn clean
-2. mvn verify
-3. mvn site
-4. mvn site:stage
-5. mvn site-deploy
+```bash
+# compile needed because the tests maven module is not a named module
+# site only generates the individual sites in the various modules
+# site:stage brings all the sites together
+# scm-publish:publish-scm because scm-deploy doesnt work for mutli module at time of writing
+1. mvn clean compile site site:stage 
+2. mvn scm-publish:publish-scm
+```
 
 ### The Package
 

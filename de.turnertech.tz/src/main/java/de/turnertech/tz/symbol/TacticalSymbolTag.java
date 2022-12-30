@@ -1,4 +1,4 @@
-package de.turnertech.tz.api;
+package de.turnertech.tz.symbol;
 
 import java.util.Objects;
 import java.util.Optional;

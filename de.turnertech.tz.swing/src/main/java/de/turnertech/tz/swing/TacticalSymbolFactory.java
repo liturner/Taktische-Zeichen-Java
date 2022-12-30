@@ -7,7 +7,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
-import de.turnertech.tz.api.TacticalSymbolTag;
+import de.turnertech.tz.symbol.TacticalSymbolResource;
+import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
+import de.turnertech.tz.symbol.TacticalSymbolTag;
 
 /**
  * <p>A static factory class for creating and accessing the tactical symbols
@@ -15,11 +17,9 @@ import de.turnertech.tz.api.TacticalSymbolTag;
  * 
  * <p>Make sure to call {@link #initialise} early in your application startup
  * to get the most expensive part of starting up out of the way. This triggers
- * the reading of the index file and will create an ArrayList of TacticalSymbol
+ * the reading of the index file and will create an ArrayList of {@link TacticalSymbolResource}
  * with instances for every symbol. If not explicitely called, it will be 
- * called on the first attempt to access the symbols. This may cause a slight
- * stutter in your application, as on my machine the initialisation takes over
- * 100ms</p>
+ * called on the first attempt to access the symbols via {@link #getTacticalSymbols()}.</p>
  * 
  * @since 1.2
  */
@@ -31,8 +31,6 @@ public class TacticalSymbolFactory {
 
     /**
      * We use java.util logging. This is the name of the logger we are using.
-     * 
-     * @since 1.2
      */
     public static final String LOGGER_NAME = "de.turnertech.tz";
 
@@ -43,12 +41,12 @@ public class TacticalSymbolFactory {
     }
 
     /**
-     * <p>Uses {@link de.turnertech.tz.symbol.TacticalSymbolFactory} to initialise an internal
+     * <p>Uses {@link TacticalSymbolResourceFactory} to initialise an internal
      * list aof all available tactical symbols wrapped and prepared in {@link TacticalSymbol}
      * instances</p>
      * 
      * @return if the initialisation was successfull or not.
-     * @since 1.2
+     * @see #reset()
      */
     public static boolean initialise() {
 
@@ -57,14 +55,14 @@ public class TacticalSymbolFactory {
             return true;
         }
 
-        if(!de.turnertech.tz.symbol.TacticalSymbolFactory.initialise()) {
+        if(!de.turnertech.tz.symbol.TacticalSymbolResourceFactory.initialise()) {
             logger.severe("Could not initialised the symbol.TacticalSymbolFactory!");
             return false;
         }
 
-        Collection<de.turnertech.tz.symbol.TacticalSymbol> symbols = de.turnertech.tz.symbol.TacticalSymbolFactory.getTacticalSymbols();
+        Collection<de.turnertech.tz.symbol.TacticalSymbolResource> symbols = de.turnertech.tz.symbol.TacticalSymbolResourceFactory.getTacticalSymbols();
         tacticalSymbols = new ArrayList<>(symbols.size());
-        for(de.turnertech.tz.symbol.TacticalSymbol symbol : symbols) {
+        for(de.turnertech.tz.symbol.TacticalSymbolResource symbol : symbols) {
             tacticalSymbols.add(new TacticalSymbol(symbol));
         }
 
@@ -75,18 +73,17 @@ public class TacticalSymbolFactory {
      * <p>Resets the cache back to a default state. After calling clear, a subsequent call to 
      * {@link #isInitialised()} will return false.</p>
      * 
-     * @since 1.2
+     * @see #initialise()
      */
     public static void reset() {
         tacticalSymbols = null;
-        de.turnertech.tz.symbol.TacticalSymbolFactory.reset();
+        de.turnertech.tz.symbol.TacticalSymbolResourceFactory.reset();
     }
 
     /**
      * Simple check to see if the internal storage has been initialised.
      * 
      * @return if the symbols instances have been prepared.
-     * @since 1.2
      */
     public static boolean isInitialised() {
         return tacticalSymbols != null;
@@ -98,7 +95,7 @@ public class TacticalSymbolFactory {
      * 
      * @param tags The {@link TacticalSymbolTag}s to be used to search for the symbols
      * @return A collection of symbols matching all tags
-     * @since 1.2
+     * @see #getTacticalSymbols()
      */
     public static Collection<TacticalSymbol> getTacticalSymbols(TacticalSymbolTag ... tags) {
         if(!isInitialised()) {
@@ -114,10 +111,10 @@ public class TacticalSymbolFactory {
     }
 
     /**
-     * Simply returns the internal storage wrapped in an unmodifiable list.
+     * Returns the internal storage wrapped in an unmodifiable list.
      * 
      * @return All of the loaded {@link TacticalSymbol}s
-     * @since 1.2
+     * @see #getTacticalSymbols(TacticalSymbolTag...)
      */
     public static Collection<TacticalSymbol> getTacticalSymbols() {
         if(!isInitialised()) {

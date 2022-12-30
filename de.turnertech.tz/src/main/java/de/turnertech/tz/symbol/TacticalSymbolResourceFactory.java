@@ -11,8 +11,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import de.turnertech.tz.api.TacticalSymbolTag;
-
 /**
  * <p>A static factory class for creating and accessing the tactical symbols
  * provided in this module via a programmer friendly method.</p>
@@ -27,11 +25,11 @@ import de.turnertech.tz.api.TacticalSymbolTag;
  * 
  * @since 1.2
  */
-public class TacticalSymbolFactory {
+public class TacticalSymbolResourceFactory {
     
-    private TacticalSymbolFactory() {/* Static Factory */}
+    private TacticalSymbolResourceFactory() {/* Static Factory */}
 
-    private static ArrayList<TacticalSymbol> tacticalSymbols;
+    private static ArrayList<TacticalSymbolResource> tacticalSymbols;
 
     /**
      * We use java.util logging. This is the name of the logger we are using.
@@ -48,7 +46,7 @@ public class TacticalSymbolFactory {
 
     /**
      * <p>Reads the index file and populates an internal storage of 
-     * {@link TacticalSymbol} instances. Note, that thes instances do not have
+     * {@link TacticalSymbolResource} instances. Note, that thes instances do not have
      * the images in memory, only URLs to the assets so that you can easily
      * load them using your system of choice.</p>
      * 
@@ -62,18 +60,18 @@ public class TacticalSymbolFactory {
             return true;
         }
 
-        try (InputStream input = TacticalSymbolFactory.class.getResourceAsStream("index")) {
+        try (InputStream input = TacticalSymbolResourceFactory.class.getResourceAsStream("index")) {
             tacticalSymbols = new ArrayList<>(1000);
             Scanner scanner = new Scanner(input, "UTF-8");
             while (scanner.hasNextLine()) {
                 String[] line = scanner.nextLine().split(",");
-                URL resource = TacticalSymbolFactory.class.getResource(line[0]);
+                URL resource = TacticalSymbolResourceFactory.class.getResource(line[0]);
                 ArrayList<TacticalSymbolTag> tagList = new ArrayList<>();
                 for(int i = 1; i < line.length; ++i) {
                     tagList.add(TacticalSymbolTag.from(line[i]).orElseThrow());
                 }
                 tagList.trimToSize();
-                tacticalSymbols.add(new TacticalSymbol(resource, tagList));
+                tacticalSymbols.add(new TacticalSymbolResource(resource, tagList));
             }
             scanner.close();
             tacticalSymbols.trimToSize();
@@ -108,19 +106,19 @@ public class TacticalSymbolFactory {
     }
 
     /**
-     * <p>A search mechanism using "AND" logic to retrieve all {@link TacticalSymbol}s 
+     * <p>A search mechanism using "AND" logic to retrieve all {@link TacticalSymbolResource}s 
      * with all of the desired {@link TacticalSymbolTag}s</p>
      * 
      * @param tags The {@link TacticalSymbolTag}s to be used to search for the symbols
      * @return A collection of symbols matching all tags
      * @since 1.2
      */
-    public static Collection<TacticalSymbol> getTacticalSymbols(TacticalSymbolTag ... tags) {
+    public static Collection<TacticalSymbolResource> getTacticalSymbols(TacticalSymbolTag ... tags) {
         if(!isInitialised()) {
             initialise();
         }
-        LinkedList<TacticalSymbol> returnList = new LinkedList<>();
-        for(TacticalSymbol tacticalSymbol : tacticalSymbols) {
+        LinkedList<TacticalSymbolResource> returnList = new LinkedList<>();
+        for(TacticalSymbolResource tacticalSymbol : tacticalSymbols) {
             if(tacticalSymbol.getTags().containsAll(Arrays.asList(tags))) {
                 returnList.add(tacticalSymbol);
             }
@@ -131,10 +129,10 @@ public class TacticalSymbolFactory {
     /**
      * Simply returns the internal storage wrapped in an unmodifiable list.
      * 
-     * @return All of the loaded {@link TacticalSymbol}s
+     * @return All of the loaded {@link TacticalSymbolResource}s
      * @since 1.2
      */
-    public static Collection<TacticalSymbol> getTacticalSymbols() {
+    public static Collection<TacticalSymbolResource> getTacticalSymbols() {
         if(!isInitialised()) {
             initialise();
         }
