@@ -41,10 +41,18 @@ The Maven Site is a fully fledged multi-module site, deployed to GitHub Pages. T
 # site only generates the individual sites in the various modules
 # site:stage brings all the sites together
 # scm-publish:publish-scm because scm-deploy doesnt work for mutli module at time of writing
-1. mvn clean compile site site:stage
-2. mvn scm-publish:publish-scm
+
+mvn clean compile site site:stage
+mvn scm-publish:publish-scm
 ```
 
 ### The Package
 
-At current you may need to run mvn release:prepare twice. The tests fail the first time, but not the second?
+Sometimes the release:prepare fails on the first try. This seems to be related to the tests project. Just run release:prepare again and it should work.
+
+```bash
+mvn clean verify
+mvn release:prepare
+# Use the tag "taktische-zeichen-..."
+mvn release:perform
+```
