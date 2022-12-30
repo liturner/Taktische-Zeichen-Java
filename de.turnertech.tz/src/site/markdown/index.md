@@ -4,6 +4,8 @@
 ![Gefahr durch Explosivstoffe](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/gefahren/Gefahr_durch_Explosivstoffe.png)
 ![Zugtrupp - THW](https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/thw/Zugtrupp.png)
 
+Taktische-Zeichen-Java is a Java project containing a set of tactical symbols from the project [jonas-koeritz/Taktische-Zeichen](https://github.com/jonas-koeritz/Taktische-Zeichen), packaged and distributed in a Java 11 friendly manner, using the Java Module System.
+
 This is a maven artefact (jar) containing the actual images, and a few very basic "pure java" set of classes for accessing the images. For more information on the modules and classes, check out the [Javadoc](apidocs/de.turnertech.tz.symbol/module-summary.html) under Project Reports on the left.
 
 Maven and Gradle dependency information is [here](dependency-info.html).
