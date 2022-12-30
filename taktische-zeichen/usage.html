@@ -34,7 +34,7 @@
       <li class=""><a href="index.html" title="Taktische-Zeichen">Taktische-Zeichen</a><span class="divider">/</span></li>
     <li class="active ">Usage</li>
         <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2022-12-30</li>
-          <li id="projectVersion" class="pull-right"><span class="divider">|</span>Version: 1.3-SNAPSHOT</li>
+          <li id="projectVersion" class="pull-right"><span class="divider">|</span>Version: 1.3</li>
         <li class="pull-right"><span class="divider">|</span>
 <a href="https://www.bbk.bund.de/" class="externalLink" title="BBK"><img class="imageLink" src="https://www.bbk.bund.de/SiteGlobals/Frontend/Images/favicons/favicon.ico?__blob=normal&v=1" alt="" style="height: 14px;" />BBK</a></li>
         <li class="pull-right"><a href="https://www.thw.de/" class="externalLink" title="THW"><img class="imageLink" src="https://www.thw.de/SiteGlobals/StyleBundles/Bilder/favicon.ico?__blob=normal&v=2" alt="" style="height: 14px;" />THW</a></li>
@@ -75,20 +75,20 @@
 <p>Below a basic usage example to loop and print through all of the symbols provided by the library.</p>
 
 <div class="source"><pre class="prettyprint"><code class="language-java">import java.util.Collection;
-import de.turnertech.tz.symbol.TacticalSymbol;
-import de.turnertech.tz.symbol.TacticalSymbolFactory;
+import de.turnertech.tz.symbol.TacticalSymbolResource;
+import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
 
 public class Application {
     public static void main(String[] args) {
 
         // Technically optional, but recomended in production as it is 
         // a fairly expensive one off function.
-        TacticalSymbolFactory.initialise();
+        TacticalSymbolResourceFactory.initialise();
         
         // Loop and print out all of the symbol paths on the class path. You could
         // use thes URLs in e.g. a Swing Image.
-        Collection&lt;TacticalSymbol&gt; symbols = TacticalSymbolFactory.getTacticalSymbols();
-        for(TacticalSymbol symbol : symbols) {
+        Collection&lt;TacticalSymbolResource&gt; symbols = TacticalSymbolResourceFactory.getTacticalSymbols();
+        for(TacticalSymbolResource symbol : symbols) {
             System.out.println(symbol.getResourceURL());
         }
     }
@@ -96,11 +96,11 @@ public class Application {
 </code></pre></div>
 <p>How to get the name of the JUL logger we are using.</p>
 
-<div class="source"><pre class="prettyprint"><code class="language-java">import de.turnertech.tz.symbol.TacticalSymbolFactory;
+<div class="source"><pre class="prettyprint"><code class="language-java">import de.turnertech.tz.symbol.TacticalSymbolResourceFactory;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println(TacticalSymbolFactory.LOGGER_NAME);
+        System.out.println(TacticalSymbolResourceFactory.LOGGER_NAME);
     }
 }
 </code></pre></div>

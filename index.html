@@ -33,7 +33,7 @@
       <li class=""><a href="./" title="Taktische-Zeichen-Java">Taktische-Zeichen-Java</a><span class="divider">/</span></li>
     <li class="active ">Taktische-Zeichen-Java</li>
         <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2022-12-30</li>
-          <li id="projectVersion" class="pull-right"><span class="divider">|</span>Version: 1.3-SNAPSHOT</li>
+          <li id="projectVersion" class="pull-right"><span class="divider">|</span>Version: 1.3</li>
         <li class="pull-right"><span class="divider">|</span>
 <a href="https://www.bbk.bund.de/" class="externalLink" title="BBK"><img class="imageLink" src="https://www.bbk.bund.de/SiteGlobals/Frontend/Images/favicons/favicon.ico?__blob=normal&v=1" alt="" style="height: 14px;" />BBK</a></li>
         <li class="pull-right"><a href="https://www.thw.de/" class="externalLink" title="THW"><img class="imageLink" src="https://www.thw.de/SiteGlobals/StyleBundles/Bilder/favicon.ico?__blob=normal&v=2" alt="" style="height: 14px;" />THW</a></li>
@@ -69,10 +69,22 @@
 <img src="https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einheiten/feuerwehr/Löschzug.png" alt="Löschzug" />
 <img src="https://raw.githubusercontent.com/liturner/Taktische-Zeichen-Java/main/de.turnertech.tz/src/main/resources/de/turnertech/tz/symbol/einrichtungen/Leitstelle.png" alt="Leitstelle" /></p>
 <p>Taktische-Zeichen-Java is a Java project containing a set of tactical symbols from the project <a class="externalLink" href="https://github.com/jonas-koeritz/Taktische-Zeichen">jonas-koeritz/Taktische-Zeichen</a>, packaged and distributed in a Java 11 friendly manner, using the Java Module System.</p>
-<p>This is the parent module page. On the left under &#x201c;Modules&#x201d; you will find links to the sub module pages, which include the information and reports for the modules which this project produces. I have tried to keep the modules as lightweight as possible. You can either grab &#x201c;just the images&#x201d; from the &#x201c;Taktische-Zeichen&#x201d; module, or instead grab a set of Swing helpers using the &#x201c;Taktische-Zeichen-Swing&#x201d; module.</p>
-<p>Moving forward, I intend to add modules for tools like Java FX.</p><section>
+<p>This is the parent module page. On the left under &#x201c;Modules&#x201d; you will find links to the sub module pages, which include the information and reports for the modules which this project produces. I have tried to keep the modules as lightweight as possible. You can either grab &#x201c;just the images&#x201d; from the &#x201c;Taktische-Zeichen&#x201d; module, or instead grab a set of Swing helpers using the &#x201c;Taktische-Zeichen-Swing&#x201d; module.</p><section>
+<h2><a name="Module_.26_Package_Structure"></a>Module &amp; Package Structure</h2>
+<p><img src="images/uml-model.png" alt="UML Model" /></p></section><section>
+<h2><a name="Roadmap"></a>Roadmap</h2>
+<ul>
+
+<li>Add a JavaFX module.</li>
+<li>Figure out how to get the aggregate Javadoc working</li>
+</ul></section><section>
 <h2><a name="Attribution"></a>Attribution</h2>
-<p>A big thankyou to the project <a class="externalLink" href="https://github.com/jonas-koeritz/Taktische-Zeichen">jonas-koeritz/Taktische-Zeichen</a> for licensing the images provided here under <a class="externalLink" href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg" alt="License: CC0-1.0" /></a>. I did not produce any of the images in this library, I am only distributing them via a Java friendly mechanism.</p></section>
+<p>A big thankyou to the project <a class="externalLink" href="https://github.com/jonas-koeritz/Taktische-Zeichen">jonas-koeritz/Taktische-Zeichen</a> for licensing the images provided here under <a class="externalLink" href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg" alt="License: CC0-1.0" /></a>. I did not produce any of the images in this library, I am only distributing them via a Java friendly mechanism.</p></section><section>
+<h2><a name="Lessons_Learned"></a>Lessons Learned</h2>
+<ul>
+
+<li>Allways start with a maven sub-group! When I started this project, it was my first Maven Central deployment. I pushed the first jar to de.turnertech.taktische-zeichen. This would have been better grouped under de.turnertech.tz, as now there are other modules, it makes the root messy. In future I will use de.turnertech.{project-acronym}.{artefact}.</li>
+</ul></section>
         </main>
       </div>
     </div>
