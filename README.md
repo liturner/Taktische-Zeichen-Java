@@ -41,7 +41,7 @@ The Maven Site is a fully fledged multi-module site, deployed to GitHub Pages. T
 # site only generates the individual sites in the various modules
 # site:stage brings all the sites together
 # scm-publish:publish-scm because scm-deploy doesnt work for mutli module at time of writing
-1. mvn clean compile site site:stage 
+1. mvn clean compile site site:stage
 2. mvn scm-publish:publish-scm
 ```
 

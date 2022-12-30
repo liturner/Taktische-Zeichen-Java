@@ -13,7 +13,7 @@
   
   <name>Taktische-Zeichen</name>
   <packaging>jar</packaging>
-  <description>Taktische Zeichen für Hilfsorganisationen als 256px PNG in eine Module</description>
+  <description>Module containing the PNG resources for the Taktische-Zeichen-Java project</description>
 
   <licenses>
     <license>

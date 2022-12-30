@@ -13,7 +13,7 @@
   
   <name>Taktische-Zeichen-Swing</name>
   <packaging>jar</packaging>
-  <description>Taktische Zeichen für Hilfsorganisationen als 256px PNG mit Swing Helper Classes</description>
+  <description>Module containing the Swing wrappers for the Taktische-Zeichen-Java project</description>
 
   <licenses>
     <license>
