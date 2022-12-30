@@ -12,10 +12,13 @@ public enum TacticalSymbolTag {
     THW("thw"),
 
     /** Feuerwehr, Fire Brigade */
-    FW("fw"),
+    FIRE_BRIGADE("fw"),
 
     /** Bundeswehr, Military */
-    BW("bw"),
+    MILITARY("bw"),
+
+    /** Polizei */
+    POLICE("polizei"),
 
     /** Zoll, Customs */
     CUSTOMS("zoll"),
@@ -26,8 +29,45 @@ public enum TacticalSymbolTag {
     /** Gebäude, Building */
     BUILDING("gebäude"),
 
+    /** Einrichtungen */
+    FACILITIES("einrichtungen"),
+
+    /** Maßnahmen */
+    MEASURES("maßnahmen"),
+
+    /** Schäden */
+    DAMAGE("schäden"),
+
+    /** Schadenskonten */
+    DAMAGE_ACCOUNTS("schadenskonten"),
+    
     /** Person */
-    PERSON("personen");
+    PERSON("personen"),
+
+    /** Sonstiges */
+    OTHER("sonstiges"),
+
+    /** gefahren */
+    HAZARDS("gefahren"),
+
+    /** Fahrzeuge */
+    VEHICLE("fahrzeuge"),
+
+    /** Wasserrettung */
+    WATER_RESCUE("wasserrettung"),
+
+    /** Katastrophenschutz */
+    CIVIL_PROTECTION("katastrophenschutz"),
+    
+    /** Rettungswesen */
+    RESCUE_SERVICES("rettungswesen"),
+
+    /** Führungsstellen */
+    LEADERSHIP("führungsstellen"),
+ 
+    /** Fernmeldewesen */
+    TELECOMMUNICATIONS("fernmeldewesen");
+    
 
     private final String label;
 
