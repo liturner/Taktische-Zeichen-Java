@@ -18,12 +18,15 @@ import java.util.Objects;
  */
 public class TacticalSymbolResource {
     
+    private final int id;
+
     private final URL resource;
 
     private final Collection<TacticalSymbolTag> tags;
 
-    TacticalSymbolResource(final URL resource, final Collection<TacticalSymbolTag> tags) {
+    TacticalSymbolResource(final int id, final URL resource, final Collection<TacticalSymbolTag> tags) {
         Objects.requireNonNull(resource, "TacticalSymbol cannot be created with a null resource!");
+        this.id = id;
         this.tags = tags == null ? Collections.emptyList() : Collections.unmodifiableCollection(tags);
         this.resource = resource;                
     }
@@ -38,6 +41,16 @@ public class TacticalSymbolResource {
      */
     public URL getResourceURL() {
         return resource;
+    }
+
+    /**
+     * The Id of a resource is an arbitrary number representing the symbol. The Id of a symbol
+     * is guarenteed to be the same across runs, as long as the version of the library is not changed
+     * 
+     * @return A unique ID for this resource.
+     */
+    public int getId() {
+        return id;
     }
 
     /**

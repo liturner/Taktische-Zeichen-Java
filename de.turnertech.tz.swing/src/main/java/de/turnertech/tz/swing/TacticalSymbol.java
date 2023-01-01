@@ -5,6 +5,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -107,6 +108,17 @@ public class TacticalSymbol implements Transferable {
         scaled.setDescription(symbol.toString());
         this.cache.add(new SimpleEntry<>(cacheKey, scaled));
         return scaled;
+    }
+
+    /**
+     * Gets the symbols underlying class path resource URL. This should be avoided where possible, as we have
+     * already loaded the image once. It can however be usefull for certain applications where direct access
+     * to the resource is needed.
+     *
+     * @return The URL to the image resource (as provided by the class loader)
+     */
+    public URL getImageURL() {
+        return symbol.getResourceURL();
     }
 
     /**
