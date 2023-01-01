@@ -18,12 +18,15 @@ import java.util.Objects;
  */
 public class TacticalSymbolResource {
     
+    private final int hashCode;
+
     private final URL resource;
 
     private final Collection<TacticalSymbolTag> tags;
 
-    TacticalSymbolResource(final URL resource, final Collection<TacticalSymbolTag> tags) {
+    TacticalSymbolResource(final int hashCode, final URL resource, final Collection<TacticalSymbolTag> tags) {
         Objects.requireNonNull(resource, "TacticalSymbol cannot be created with a null resource!");
+        this.hashCode = hashCode;
         this.tags = tags == null ? Collections.emptyList() : Collections.unmodifiableCollection(tags);
         this.resource = resource;                
     }
@@ -68,6 +71,20 @@ public class TacticalSymbolResource {
             TacticalSymbolResourceFactory.logger.severe("Could not decode the filepath to a UTF-8 String! Tell this to a Dev");
         }
         return filename.substring(filename.lastIndexOf('/') + 1 , filename.length() - 4);
+    }
+
+    /** As the hashCode is the hash of the image file, and the tags are immutable, equals only needs to check the hash code. */
+    @Override
+    public boolean equals(Object other) {
+        return Integer.valueOf(hashCode).equals(Objects.hashCode(other));
+    }
+
+    /**
+     * We are hard coding the hashcode in the constructor. It is ecpected to be the hash of the origional file path
+     */
+    @Override
+    public int hashCode() {
+        return hashCode;
     }
 
 }

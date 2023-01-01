@@ -1,10 +1,11 @@
 package de.turnertech.tz.swing;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import de.turnertech.tz.symbol.TacticalSymbolResource;
@@ -27,7 +28,7 @@ public class TacticalSymbolFactory {
     
     private TacticalSymbolFactory() {/* Static Factory */}
 
-    private static ArrayList<TacticalSymbol> tacticalSymbols;
+    private static HashMap<Integer, TacticalSymbol> tacticalSymbols;
 
     /**
      * We use java.util logging. This is the name of the logger we are using.
@@ -61,9 +62,9 @@ public class TacticalSymbolFactory {
         }
 
         Collection<de.turnertech.tz.symbol.TacticalSymbolResource> symbols = de.turnertech.tz.symbol.TacticalSymbolResourceFactory.getTacticalSymbols();
-        tacticalSymbols = new ArrayList<>(symbols.size());
+        tacticalSymbols = new HashMap<>(symbols.size());
         for(de.turnertech.tz.symbol.TacticalSymbolResource symbol : symbols) {
-            tacticalSymbols.add(new TacticalSymbol(symbol));
+            tacticalSymbols.put(symbol.hashCode(), new TacticalSymbol(symbol));
         }
 
         return true;
@@ -102,12 +103,22 @@ public class TacticalSymbolFactory {
             initialise();
         }
         LinkedList<TacticalSymbol> returnList = new LinkedList<>();
-        for(TacticalSymbol tacticalSymbol : tacticalSymbols) {
+        for(TacticalSymbol tacticalSymbol : tacticalSymbols.values()) {
             if(tacticalSymbol.getTags().containsAll(Arrays.asList(tags))) {
                 returnList.add(tacticalSymbol);
             }
         }
         return returnList;
+    }
+
+    /**
+     * Returns a tactical symbol based on its unique Id.
+     * 
+     * @param id The unique Id of the underlying {@link TacticalSymbolResource}
+     * @return The symbol, if it was present.
+     */
+    public static Optional<TacticalSymbol> getTacticalSymbol(final int id) {
+        return Optional.ofNullable(tacticalSymbols.getOrDefault(id, null));
     }
 
     /**
@@ -120,7 +131,7 @@ public class TacticalSymbolFactory {
         if(!isInitialised()) {
             initialise();
         }
-        return Collections.unmodifiableCollection(tacticalSymbols);
+        return Collections.unmodifiableCollection(tacticalSymbols.values());
     }
 
 }

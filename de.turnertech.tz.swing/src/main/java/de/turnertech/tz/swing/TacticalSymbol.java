@@ -5,6 +5,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -110,6 +111,17 @@ public class TacticalSymbol implements Transferable {
     }
 
     /**
+     * Gets the symbols underlying class path resource URL. This should be avoided where possible, as we have
+     * already loaded the image once. It can however be usefull for certain applications where direct access
+     * to the resource is needed.
+     *
+     * @return The URL to the image resource (as provided by the class loader)
+     */
+    public URL getImageURL() {
+        return symbol.getResourceURL();
+    }
+
+    /**
      * Fast method to approximate a unique key. This returns an integer with the
      * individual parameters shifted, allowinf space for all reasonable values.
      * 
@@ -165,5 +177,19 @@ public class TacticalSymbol implements Transferable {
         }
         return false;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return Integer.valueOf(hashCode()).equals(Objects.hashCode(other));
+    }
+
+    /**
+     * We are hard coding the hashcode in the constructor. It is ecpected to be the hash of the origional file path
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(symbol.hashCode(), "swing.TacticalSymbol");
+    }
+    
 
 }

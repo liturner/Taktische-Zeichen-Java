@@ -71,7 +71,7 @@ public class TacticalSymbolResourceFactory {
                     tagList.add(TacticalSymbolTag.from(line[i]).orElseThrow());
                 }
                 tagList.trimToSize();
-                tacticalSymbols.add(new TacticalSymbolResource(resource, tagList));
+                tacticalSymbols.add(new TacticalSymbolResource(line[0].hashCode(), resource, tagList));
             }
             scanner.close();
             tacticalSymbols.trimToSize();
