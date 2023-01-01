@@ -1,6 +1,10 @@
 package de.turnertech.tz.swing;
 
 import java.awt.Image;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -18,8 +22,13 @@ import de.turnertech.tz.symbol.TacticalSymbolTag;
  * requested. The class is backed by a cache system, so allways use this
  * class for creating scaled copies of your symbols!
  */
-public class TacticalSymbol {
+public class TacticalSymbol implements Transferable {
     
+    /** A {@link DataFlavor} representing the TacticalSymbol class, allowing the entire class to be part of Drag and Drop actions. */
+    public static final DataFlavor DATA_FLAVOR = new DataFlavor(TacticalSymbol.class, "Tactical Symbol");
+
+    private static final DataFlavor[] possibleDataFlavors = new DataFlavor[]{DATA_FLAVOR, DataFlavor.stringFlavor, DataFlavor.imageFlavor};
+
     private final de.turnertech.tz.symbol.TacticalSymbolResource symbol;
 
     private ImageIcon imageIcon;
@@ -127,6 +136,34 @@ public class TacticalSymbol {
     @Override
     public String toString() {
         return symbol.toString();
+    }
+
+    @Override
+    public Object getTransferData(DataFlavor dataFlavor) throws UnsupportedFlavorException, IOException {
+        if(dataFlavor.equals(DATA_FLAVOR)) {
+            return this;
+        } else if(dataFlavor.equals(DataFlavor.stringFlavor)) {
+            return this.toString();
+        } else if(dataFlavor.equals(DataFlavor.imageFlavor)) {
+            return this.getImageIcon().getImage();
+        } else {
+            throw new UnsupportedFlavorException(dataFlavor);
+        }
+    }
+
+    @Override
+    public DataFlavor[] getTransferDataFlavors() {
+        return possibleDataFlavors;
+    }
+
+    @Override
+    public boolean isDataFlavorSupported(DataFlavor dataFlavor) {
+        for(DataFlavor possibleDataFlavor : possibleDataFlavors) {
+            if(possibleDataFlavor.equals(dataFlavor)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
