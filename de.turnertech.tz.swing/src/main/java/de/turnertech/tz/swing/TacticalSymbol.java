@@ -178,4 +178,18 @@ public class TacticalSymbol implements Transferable {
         return false;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return Integer.valueOf(hashCode()).equals(Objects.hashCode(other));
+    }
+
+    /**
+     * We are hard coding the hashcode in the constructor. It is ecpected to be the hash of the origional file path
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(symbol.hashCode(), "swing.TacticalSymbol");
+    }
+    
+
 }

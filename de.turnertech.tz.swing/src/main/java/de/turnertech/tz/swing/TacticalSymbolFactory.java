@@ -64,7 +64,7 @@ public class TacticalSymbolFactory {
         Collection<de.turnertech.tz.symbol.TacticalSymbolResource> symbols = de.turnertech.tz.symbol.TacticalSymbolResourceFactory.getTacticalSymbols();
         tacticalSymbols = new HashMap<>(symbols.size());
         for(de.turnertech.tz.symbol.TacticalSymbolResource symbol : symbols) {
-            tacticalSymbols.put(symbol.getId(), new TacticalSymbol(symbol));
+            tacticalSymbols.put(symbol.hashCode(), new TacticalSymbol(symbol));
         }
 
         return true;
