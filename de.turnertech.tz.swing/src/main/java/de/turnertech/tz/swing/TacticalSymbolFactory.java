@@ -1,9 +1,9 @@
 package de.turnertech.tz.swing;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -28,7 +28,7 @@ public class TacticalSymbolFactory {
     
     private TacticalSymbolFactory() {/* Static Factory */}
 
-    private static HashMap<Integer, TacticalSymbol> tacticalSymbols;
+    private static ArrayList<TacticalSymbol> tacticalSymbols;
 
     /**
      * We use java.util logging. This is the name of the logger we are using.
@@ -62,9 +62,10 @@ public class TacticalSymbolFactory {
         }
 
         Collection<de.turnertech.tz.symbol.TacticalSymbolResource> symbols = de.turnertech.tz.symbol.TacticalSymbolResourceFactory.getTacticalSymbols();
-        tacticalSymbols = new HashMap<>(symbols.size());
+
+        tacticalSymbols = new ArrayList<>(symbols.size());
         for(de.turnertech.tz.symbol.TacticalSymbolResource symbol : symbols) {
-            tacticalSymbols.put(symbol.hashCode(), new TacticalSymbol(symbol));
+            tacticalSymbols.add(new TacticalSymbol(symbol));
         }
 
         return true;
@@ -103,7 +104,7 @@ public class TacticalSymbolFactory {
             initialise();
         }
         LinkedList<TacticalSymbol> returnList = new LinkedList<>();
-        for(TacticalSymbol tacticalSymbol : tacticalSymbols.values()) {
+        for(TacticalSymbol tacticalSymbol : tacticalSymbols) {
             if(tacticalSymbol.getTags().containsAll(Arrays.asList(tags))) {
                 returnList.add(tacticalSymbol);
             }
@@ -112,13 +113,18 @@ public class TacticalSymbolFactory {
     }
 
     /**
-     * Returns a tactical symbol based on its unique Id.
+     * Returns a tactical symbol based on its unique Id (hashCode).
      * 
-     * @param id The unique Id of the underlying {@link TacticalSymbolResource}
+     * @param hashCode The unique Id of the underlying {@link TacticalSymbolResource}
      * @return The symbol, if it was present.
      */
-    public static Optional<TacticalSymbol> getTacticalSymbol(final int id) {
-        return Optional.ofNullable(tacticalSymbols.getOrDefault(id, null));
+    public static Optional<TacticalSymbol> getTacticalSymbol(final int hashCode) {
+        for(TacticalSymbol tacticalSymbol : tacticalSymbols) {
+            if(tacticalSymbol.hashCode() == hashCode) {
+                return Optional.of(tacticalSymbol);
+            }
+        }
+        return Optional.empty();
     }
 
     /**
@@ -131,7 +137,7 @@ public class TacticalSymbolFactory {
         if(!isInitialised()) {
             initialise();
         }
-        return Collections.unmodifiableCollection(tacticalSymbols.values());
+        return Collections.unmodifiableCollection(tacticalSymbols);
     }
 
 }
